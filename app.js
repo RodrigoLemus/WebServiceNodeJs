@@ -58,14 +58,6 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-//Comprobacion para OpenShift
-var server_port = proceso. env . OPENSHIFT_NODEJS_PORT  ||  8080 
-var server_ip_address = proceso. env . OPENSHIFT_NODEJS_IP  ||  '127.0.0.1'
- 
-servidor. listen ( server_port , server_ip_address ,  function  ( )  { 
-  consola. log (  "Listening on"  + server_ip_address +  ", puerto"  + server_port ) 
-} ) ;
-
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
