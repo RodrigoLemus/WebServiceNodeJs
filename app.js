@@ -16,7 +16,6 @@ var postRoute = require('./routes/api/post.route');
 var services = require('./services');
 
 var app = express();
-var port = 3000;
 var uri = '/api/v1/';
 
 //CONFIGURACION VISTA
@@ -25,6 +24,10 @@ app.set('view engine', 'ejs');
 
 //CONFIGURACION LOGGER
 app.use(logger('dev'));
+
+//CONFIGURACION DEL PUERTO
+app.set('port', (process.env.PORT || 3000))
+app.listen(app.get('port'));
 
 //CONFIGURACION DE BODY-PARSER
 app.use(bodyParser.json());
@@ -72,6 +75,6 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(port, function() {
-  console.log("El servidor esta corriendo puerto: " + port);
-});
+//app.listen(port, function() {
+//  console.log("El servidor esta corriendo puerto: " + port);
+//);
